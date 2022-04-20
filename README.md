@@ -9,3 +9,6 @@ That Card will be sent to you, in your wallet upon confirming the transaction, a
 
 For Implementation sake, i used Ganache to simulate, the working of the Game.
 
+# Screenshot
+
+![Screenshot (108)](https://user-images.githubusercontent.com/57758789/164182533-e3066229-3efb-447e-a946-012f54011250.png)
