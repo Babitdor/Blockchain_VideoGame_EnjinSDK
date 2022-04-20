@@ -1,6 +1,6 @@
 # Memory Game 
 
-A simple Memory Game, to demonstrate the implementation of Blockchain, using Solidity, Web3JS and NodeJS.
+A simple Memory Game, to demonstrate the implementation of Blockchain, using Solidity, Web3JS and NodeJS. Ganache for the personal Blockchain to test and deploy the contracts
 
 # Working 
 
