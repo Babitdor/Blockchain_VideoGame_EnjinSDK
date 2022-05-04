@@ -1,3 +1,5 @@
+https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=Ethereum&logoColor=white
+
 # Memory Game 
 
 A simple Memory Game, to demonstrate the implementation of Blockchain, using Solidity, Web3JS and NodeJS. Ganache for the personal Blockchain to test and deploy the contracts
