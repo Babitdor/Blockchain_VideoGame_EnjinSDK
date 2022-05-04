@@ -1,37 +1,33 @@
-/* Styles go here */
 .internal-container{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   position: sticky;
+  margin: auto;
   z-index: 1;
   padding: 20px;
-  border-bottom-left-radius:10px;
-  border-bottom-right-radius:10px;
-  background-color: rgb(253, 120, 120);
-  background-image: linear-gradient(rgb(218, 88, 88), rgb(72, 81, 163));
+  /* background-color: rgb(21,26,30); */
 }
+
 .img-logo {
   height: 50px;
   width: 50px;
 }
+
 .text-muted{
-  font-size: 19px;
+  font-size: 15px;
+  color: white;
+  text-align: center;
 }
+
 .account-container{
-  display: flex;
-  padding: 10px;
-  margin: 50px;
-  width: 30%;
+  margin: auto;
   color: white;
   font-style: 'bold';
-  align-items: center;
-  background-color: rgb(253, 120, 120);
-  border-radius: 20px;
-  background-image: linear-gradient(rgb(245, 245, 245), rgb(206, 73, 73));
 }
+
 .token {
-  height: 120px;
-  width: 120px;
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
   display: inline-block;
 }
@@ -40,22 +36,23 @@
   font-size: 35px;
   text-shadow: 2px 2px #222121;
 }
+.title-name:hover{
+  color: rgba(5, 240, 228, 0.527);
+  cursor: pointer;
+}
+
+
 .row{
   display: flex;
-  flex-direction:row;
-  justify-content: space-between;
+  flex-direction:column;
   padding: 10px;
-  margin: 100px;
-  margin-top: 50px;
+  margin: 10px;
+  justify-content: space-evenly;
 }
 .inner-container{
   
   display: flex;
   flex-direction:column;
-  align-items: center;
-  padding: 10px;
-  margin: auto;
-  justify-content: center;
 }
 
 .cards{
@@ -63,59 +60,158 @@
   -moz-box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.5);
   box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.5);
   border-radius: 10px;
-  width: 150px;
-  height: 150px;
   margin: 10px;
-  display: flex;
+  width: 100px;
+  height: 100px;
+  transition: transform .2s;
   border-style: solid;
-  border-color: rgba(143, 122, 26, 0.527);
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  border-color: rgba(39, 39, 39, 0.527);
+}
+
+.cards:hover{
+  
+    transform: scale(1.2);
+    border-color: rgba(5, 240, 228, 0.527);
+  
 }
 
 .img-collect{
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
   -webkit-box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.5);
   -moz-box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.5);
   box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.5);
 }
+.img-collect:hover{
+  transform: scale(1.2);
+
+}
+
 .card-layout{
-  background-color: rgb(253, 120, 120);
-  background-image: linear-gradient(rgb(218, 88, 88), rgb(72, 81, 163));
+  background-color: rgb(21,26,30);
   border-radius: 20px;
+  padding: 20px;
   display: grid;
+  width: auto;
+  margin: auto;
+  margin-bottom: 20px;
   grid-template-columns: auto auto auto auto auto auto;
-  padding: 10px;
   -webkit-box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.5);
   -moz-box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.5);
   box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.5);
 }
 
 .token-result{
-  display: inline-grid;
-  grid-template-columns: auto auto auto auto;
-  padding: 10px;
-  margin: 10px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  margin: auto;
+ 
 }
+
 .tokens-text{
   color: white;
+  font-size: xx-large;
+  padding: 10px;
 }
+
+
+.background{
+  padding: 50px;
+  margin: auto;
+}
+
 .token-container{
   display: 1;
-  background-color: rgb(253, 120, 120);
-  background-image: linear-gradient(rgb(218, 88, 88), rgb(72, 81, 163));
-  padding: 20px;
-  margin: 10px;
+  background-color: rgb(21,26,30);
+  padding: 10px;
+  margin: auto;
+  width: max-content;
   border-radius: 20px;
   -webkit-box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.5);
   -moz-box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.5);
   box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.5);
 }
+.flip-box {
+  background-color: transparent;
+  width: 700px;
+  height: 100px;
+  margin-bottom: 50px;
+  margin: auto;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
 
-.background{
-  background-color: rgb(253, 120, 120);
-  background-image: linear-gradient(rgb(231, 231, 231), rgb(72, 81, 163));
-  height: 200vh;
+/* This container is needed to position the front and back side */
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side */
+.flip-box-front {
+  background-color: rgb(21,26,30);
+  border-radius: 10px;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  -webkit-box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.5);
+  -moz-box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.5);
+  box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.5);
+}
+
+/* Style the back side */
+.flip-box-back {
+  background-color: rgb(21,26,30);
+  color: white;
+  border-radius: 10px;
+  height: auto;
+  width: auto;
+  transform: rotateY(180deg);
+  -webkit-box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.5);
+  -moz-box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.5);
+  box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.5);
+}
+
+
+.dialog {
+  box-shadow: 0 8px 6px -6px black;
+  position: static;
+  left: 20%;
+  top: 10%;
+}
+
+.image {
+  width: 300px;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+  .card-layout{
+    background-color: rgb(21,26,30);
+    border-radius: 20px;
+    padding: 20px;
+    display: grid;
+    width: auto;
+    margin: auto;
+    grid-template-columns: auto auto auto auto;
+    
+  }
 }

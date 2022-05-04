@@ -1,109 +1,15 @@
 import React, { Component } from 'react';
 import Web3 from 'web3'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
 import './App.css';
 import MemoryToken from '../abis/MemoryToken.json'
 import brain from '../brain.png'
-
-const CARD_ARRAY = [
-  {
-    name: 'fries',
-    img: '/images/fries.png'
-  },
-  {
-    name: 'cheeseburger',
-    img: '/images/cheeseburger.png'
-  },
-  {
-    name: 'ice-cream',
-    img: '/images/ice-cream.png'
-  },
-  {
-    name: 'pizza',
-    img: '/images/pizza.png'
-  },
-  {
-    name: 'milkshake',
-    img: '/images/milkshake.png'
-  },
-  {
-    name: 'hotdog',
-    img: '/images/hotdog.png'
-  },
-  {
-    name: 'fries',
-    img: '/images/fries.png'
-  },
-  {
-    name: 'cheeseburger',
-    img: '/images/cheeseburger.png'
-  },
-  {
-    name: 'ice-cream',
-    img: '/images/ice-cream.png'
-  },
-  {
-    name: 'pizza',
-    img: '/images/pizza.png'
-  },
-  {
-    name: 'milkshake',
-    img: '/images/milkshake.png'
-  },
-  {
-    name: 'hotdog',
-    img: '/images/hotdog.png'
-  },
-  {
-    name: 'human',
-    img: '/images/NFT1.jpg'
-  },
-  {
-    name: 'skull',
-    img: '/images/NFT2.jpg'
-  },
-  {
-    name: 'panda',
-    img: '/images/NFT3.jpg'
-  },
-  {
-    name: 'boy',
-    img: '/images/NFT4.jpg'
-  },
-  {
-    name: 'art',
-    img: '/images/NFT5.jpg'
-  },
-  {
-    name: 'scene',
-    img: '/images/NFT6.jpg'
-  },
-  {
-    name: 'human',
-    img: '/images/NFT1.jpg'
-  },
-  {
-    name: 'skull',
-    img: '/images/NFT2.jpg'
-  },
-  {
-    name: 'panda',
-    img: '/images/NFT3.jpg'
-  },
-  {
-    name: 'boy',
-    img: '/images/NFT4.jpg'
-  },
-  {
-    name: 'art',
-    img: '/images/NFT5.jpg'
-  },
-  {
-    name: 'scene',
-    img: '/images/NFT6.jpg'
-  }
-]
+import CARD_ARRAY from './NFT.json'
 
 class App extends Component {
+
+  
 
   async componentWillMount() {
     await this.loadWeb3()
@@ -129,6 +35,7 @@ class App extends Component {
     const accounts = await web3.eth.getAccounts()
     this.setState({ account: accounts[0] })
 
+    
     // Load smart contract
     const networkId = await web3.eth.net.getId()
     const networkData = MemoryToken.networks[networkId]
@@ -139,6 +46,8 @@ class App extends Component {
       this.setState({ token })
       const totalSupply = await token.methods.totalSupply().call()
       this.setState({ totalSupply })
+      
+      
       // Load Tokens
       let balanceOf = await token.methods.balanceOf(accounts[0]).call()
       for (let i = 0; i < balanceOf; i++) {
@@ -161,7 +70,7 @@ class App extends Component {
     else if(this.state.cardsChosenId.includes(cardId)) {
       return CARD_ARRAY[cardId].img
     } else {
-      return window.location.origin + '/images/blank.jpg'
+      return window.location.origin + '/images/Blank.jpeg'
     }
   }
 
@@ -223,57 +132,61 @@ class App extends Component {
     }
   }
 
+
   render() {
+
+    
     return (
       
       <div className='background'>
+          
           <div className='internal-container'>
           <img src={brain} width="30" height="30" className="img-logo" alt=""></img>
           &nbsp;<h3 className='title-name'>Memory Game</h3>
-          </div>
+          </div> 
+          
           <div className='account-container'>
-          <h2 className="text-muted">Linked Account : {this.state.account}</h2>
-          </div>
+          <h2 className="text-muted">Account Linked: {this.state.account}</h2>
+         </div> 
+            
             <div className='row'>
-                <div className="card-layout" >
-                  { this.state.cardArray.map((card, key) => {
-                    return(
-                      <img
-                        alt=''
-                        key={key}
-                        src={this.chooseImage(key)}
-                        data-id={key}
-                        className="cards"
-                        onClick={(event) => {
-                          let cardId = event.target.getAttribute('data-id')
-                          if(!this.state.cardsWon.includes(cardId.toString())) {
-                            this.flipCard(cardId)
-                          }
-                        }}
-                      />
-                    )
-                  })}
-                </div>
+                          <div className="card-layout" >
+                            { this.state.cardArray.map((card, key) => {
+                              return(
+                                <img alt='' key={key} src={this.chooseImage(key)} data-id={key} className="cards"
+                                    onClick={(event) => {
+                                    let cardId = event.target.getAttribute('data-id')
+                                    if(!this.state.cardsWon.includes(cardId.toString())) {
+                                      this.flipCard(cardId)}}}/>)
+                            })}
+                          </div>
 
                 
-                <div className='token-container'>
-                  <h5 className='tokens-text'>NFTs Collected:<span id="result">&nbsp;{this.state.tokenURIs.length}</span></h5>
-                  <div className="token-result" >
-                    {this.state.tokenURIs.map((tokenURI, key) => {
-                      return(
-                        <img
-                          alt=''
-                          key={key}
-                          src={tokenURI}
-                          className="img-collect"
-                        />
-                      )
-                    })}
-                  </div>
-                </div>
-                </div>
+                            <div className='flip-box'>
+                            <div className="flip-box-inner"> 
+                              <div className="flip-box-front">
+                                <h5 className='tokens-text'>NFTs Collected:<span id="result">&nbsp;{this.state.tokenURIs.length}</span></h5>
+                              </div>
 
-          </div>
+                                <div className="flip-box-back">
+                                  
+                                    {this.state.tokenURIs.map((tokenURI, key) => {
+                                      return(
+                                    <Zoom zoomMargin={30} overlayBgColorEnd='rgba(39, 39, 39, 0.87)'>
+                                      <img alt='' key={key} src={tokenURI} className="img-collect"/>
+                                      </Zoom>
+                                      )})}
+                                  
+                                </div>
+                              </div> 
+                            </div>
+
+
+
+
+            </div>
+
+      </div>
       
     );
   }
