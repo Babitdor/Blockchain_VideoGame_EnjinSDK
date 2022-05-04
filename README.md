@@ -11,4 +11,5 @@ For Implementation sake, i used Ganache to simulate, the working of the Game.
 
 # Screenshot
 
-![Screenshot (108)](https://user-images.githubusercontent.com/57758789/164182533-e3066229-3efb-447e-a946-012f54011250.png)
+
+![Screenshot (123)](https://user-images.githubusercontent.com/57758789/166661453-b48fcdb9-4e97-43e1-9403-65fe4ffcfddf.png)
