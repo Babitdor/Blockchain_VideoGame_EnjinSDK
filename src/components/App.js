@@ -17,10 +17,11 @@ class App extends Component {
     this.setState({ cardArray: CARD_ARRAY.sort(() => 0.5 - Math.random()) })
   }
 
+
   async loadWeb3() {
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum)
-      await window.ethereum.enable()
+      await window.ethereum.request({ method: 'eth_requestAccounts'});
     }
     else if (window.web3) {
       window.web3 = new Web3(window.web3.currentProvider)
@@ -172,7 +173,7 @@ class App extends Component {
                                   
                                     {this.state.tokenURIs.map((tokenURI, key) => {
                                       return(
-                                    <Zoom zoomMargin={30} overlayBgColorEnd='rgba(39, 39, 39, 0.87)'>
+                                    <Zoom zoomMargin={30} overlayBgColorEnd='rgba(39, 39, 39, 0.87)' key={key}>
                                       <img alt='' key={key} src={tokenURI} className="img-collect"/>
                                       </Zoom>
                                       )})}
