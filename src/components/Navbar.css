@@ -1,0 +1,130 @@
+.Nav {
+
+    background-color: rgba(29, 31, 32, 0.541);
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+    border-bottom: 2px solid rgba(0, 0, 0, 0.0975);
+
+    top: 0;
+    
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: center;
+    
+    margin: auto;
+
+    position: sticky;
+
+    align-items: center;
+
+    width: 500;
+
+    z-index: 2;
+    
+    padding: 10px;
+
+    -webkit-transition: height 0.2s ease-in-out;
+
+    transition: height 0.5s ease-in-out;
+
+  }
+
+  .Nav-brand{
+      margin: auto;
+      height: 52px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+  }
+
+ .img-logo{
+     width: 45%;
+ }
+
+ .dropdown{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 350px;
+    height: 450px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgb(252, 252, 252);
+ }
+
+ .container-drop{
+    background: rgb(34,193,195); background: linear-gradient(135deg, rgb(7, 17, 15) 0%, rgba(21, 37, 36, 0.904) 100%);
+    padding: 20px;
+    margin: 0;
+ }
+
+
+ .act-title{
+     font-weight: 400;
+ }
+
+ .img-icon{
+     border-radius: 100%;
+ }
+
+ .img-logo-meta{
+    width: 30%;
+ }
+ .img-logo-eth{
+    width: 20%;
+    border-radius: 100%;
+    border-style: solid;
+    border-width: 1px;
+ }
+
+ .img-profile{
+     border-radius: 100%;
+     width: 80%;
+ }
+
+ .act-container{
+     
+     padding: 20px;
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+ }
+ .act-heading{
+     font-weight: 500;
+ }
+
+ .cards-wallet{
+
+    margin-top: 10px;
+    background-color: rgb(16, 24, 24);
+    border-radius: 10px;
+    padding: 12px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    
+ }
+ 
+
+
+ @media only screen and (min-width: 0px) and (max-width:720px){
+
+    .Nav {
+        position: relative;
+        width: 700px;
+        height: max-content;
+        margin: auto;
+        transition: 0.5s;
+        box-sizing: border-box;
+        background-color: rgba(29, 31, 32, 0.541);
+        box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+ }
+
+ 

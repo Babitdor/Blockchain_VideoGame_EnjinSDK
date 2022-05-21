@@ -1,0 +1,91 @@
+
+.card{
+  color: white;
+  max-width: 600px;
+  min-width: 400px;
+  max-height: 750px;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 60%;
+  margin: 100px auto;
+  background-color: rgba(38, 46, 53, 0.438);
+  border-radius: 25px;
+
+}
+
+.title{
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    padding: 2rem 0;
+    color: rgb(255, 255, 255);
+    margin: 0;
+    transition: 0.5s ease-in-out;
+    font-size: 40px;
+}
+.title:hover{
+    transform: scale(1.1);
+    color: rgb(19, 102, 102);
+}
+
+.title-link{
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 300;
+    padding: 2rem 0;
+    color: rgb(255, 255, 255);
+    margin: 0;
+    font-size: 20px;
+}
+
+.img-logo-brain{
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding: 2rem 0;
+    transition: 0.5s ease-in-out;
+}
+
+.img-logo-meta{
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    padding: 2rem 0;
+    transition: 0.5s ease-in-out;
+}
+
+.img-logo-brain:hover{
+      transform: scale(1.1);
+}
+
+.img-logo-meta:hover{
+    transform: scale(1.1);
+}
+
+.btn-container{
+    text-align: center;
+    width: 400px;
+    margin: auto;
+    padding-bottom: 50px;
+}
+.btn{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  display: block;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.5s ease-in-out;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+}

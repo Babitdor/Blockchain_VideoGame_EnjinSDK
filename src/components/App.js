@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Web3 from 'web3'
-import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
 import './App.css';
 import MemoryToken from '../abis/MemoryToken.json'
-import brain from '../brain.png'
 import CARD_ARRAY from './NFT.json'
+import Navbar from './Navbar';
+import Loading from './Loading';
 
 class App extends Component {
 
@@ -14,7 +14,6 @@ class App extends Component {
   async componentWillMount() {
     await this.loadWeb3()
     await this.loadBlockchainData()
-    this.setState({ cardArray: CARD_ARRAY.sort(() => 0.5 - Math.random()) })
   }
 
 
@@ -24,7 +23,7 @@ class App extends Component {
       await window.ethereum.request({ method: 'eth_requestAccounts'});
     }
     else if (window.web3) {
-      window.web3 = new Web3(window.web3.currentProvider)
+      window.web3 = new Web3(window.ethereum.currentProvider)
     }
     else {
       window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
@@ -34,12 +33,14 @@ class App extends Component {
   async loadBlockchainData() {
     const web3 = window.web3
     const accounts = await web3.eth.getAccounts()
+    const balances = await web3.eth.getBalance(accounts[0])/Math.pow(10,18)
+    this.setState({ balance: balances })
     this.setState({ account: accounts[0] })
+    this.setState({ cardArray: CARD_ARRAY.sort(() => 0.5 - Math.random()) })
 
     
     // Load smart contract
-    const networkId = await web3.eth.net.getId()
-    const networkData = MemoryToken.networks[networkId]
+    const networkData = MemoryToken.networks[await web3.eth.net.getId()]
     if(networkData) {
       const abi = MemoryToken.abi
       const address = networkData.address
@@ -54,10 +55,12 @@ class App extends Component {
       for (let i = 0; i < balanceOf; i++) {
         let id = await token.methods.tokenOfOwnerByIndex(accounts[0], i).call()
         let tokenURI = await token.methods.tokenURI(id).call()
+        const tokensIDs = tokenURI.substring(21, tokenURI.length)
         this.setState({
-          tokenURIs: [...this.state.tokenURIs, tokenURI]
+          tokenURIs: [...this.state.tokenURIs, tokensIDs]
         })
       }
+      this.setState({ loading: false})
     } else {
       alert('Smart contract not deployed to detected network.')
     }
@@ -122,6 +125,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      balance: '',
+      loading: true,
       account: '0x0',
       token: null,
       totalSupply: 0,
@@ -139,54 +144,24 @@ class App extends Component {
     
     return (
       
-      <div className='background'>
+      <div className='App'>
+          { this.state.loading ? <Loading componentWillMount={this.componentWillMount}/> :
           
-          <div className='internal-container'>
-          <img src={brain} width="30" height="30" className="img-logo" alt=""></img>
-          &nbsp;<h3 className='title-name'>Memory Game</h3>
-          </div> 
-          
-          <div className='account-container'>
-          <h2 className="text-muted">Account Linked: {this.state.account}</h2>
-         </div> 
-            
-            <div className='row'>
-                          <div className="card-layout" >
-                            { this.state.cardArray.map((card, key) => {
-                              return(
-                                <img alt='' key={key} src={this.chooseImage(key)} data-id={key} className="cards"
-                                    onClick={(event) => {
-                                    let cardId = event.target.getAttribute('data-id')
-                                    if(!this.state.cardsWon.includes(cardId.toString())) {
-                                      this.flipCard(cardId)}}}/>)
-                            })}
-                          </div>
-
-                
-                            <div className='flip-box'>
-                            <div className="flip-box-inner"> 
-                              <div className="flip-box-front">
-                                <h5 className='tokens-text'>NFTs Collected:<span id="result">&nbsp;{this.state.tokenURIs.length}</span></h5>
-                              </div>
-
-                                <div className="flip-box-back">
-                                  
-                                    {this.state.tokenURIs.map((tokenURI, key) => {
-                                      return(
-                                    <Zoom zoomMargin={30} overlayBgColorEnd='rgba(39, 39, 39, 0.87)' key={key}>
-                                      <img alt='' key={key} src={tokenURI} className="img-collect"/>
-                                      </Zoom>
-                                      )})}
-                                  
-                                </div>
-                              </div> 
-                            </div>
-
-
-
-
-            </div>
-
+          <div className='main-container'>
+            <div></div>
+              <Navbar accounts={this.state.account} tokens={this.state.tokenURIs} balances={this.state.balance}/>
+              <div className='row'>
+                <div className="card-layout" >
+                  { this.state.cardArray.map((card, key) => {
+                    return(
+                      <img alt='' key={key} src={this.chooseImage(key)} data-id={key} className="cards"
+                          onClick={(event) => {
+                          let cardId = event.target.getAttribute('data-id')
+                          if(!this.state.cardsWon.includes(cardId.toString())) {
+                            this.flipCard(cardId)}}}/>)})}
+                  </div>
+              </div>
+          </div>}
       </div>
       
     );
