@@ -19,3 +19,31 @@ For Implementation sake, i used Ganache to simulate, the working of the Game.
 
 ![Screenshot (131)](https://user-images.githubusercontent.com/57758789/169658040-3cc0f0f8-3ccc-4c72-81ed-3c760c60099a.png)
 
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm install`
+
+To install all the necessary packages.
+
+## `Open Ganache`
+Create a Blockchain server,
+Take one of the accounts in Ganache and import it to your Metamask Wallet by pasting the secret key. (Localhost 8575 network)
+
+## `truffle compile`
+To compile the Solidity Contracts.
+
+## `truffle migrate --reset`
+To migrate the contracts to Ganache Blockchain Server.
+
+## After this you are done!
+
+### Just run `npm start` and Login with Metamask on Popup.
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
