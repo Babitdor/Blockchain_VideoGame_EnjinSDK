@@ -20,6 +20,16 @@ This project demonstrates how blockchain can be integrated into the gaming world
 
 ![Screenshot (131)](https://user-images.githubusercontent.com/57758789/169658040-3cc0f0f8-3ccc-4c72-81ed-3c760c60099a.png)
 
+# Getting Started
+## Prerequisites
+Before running this project locally, ensure you have the following installed:
+
+1. Node.js (v16 or higher)
+2. npm or yarn
+3. Truffle (for deploying and testing smart contracts)
+4. Ganache (for running a local Ethereum blockchain)
+5. MetaMask (for interacting with the Ethereum network through your browser)
+
 ## Available Scripts
 
 In the project directory, you can run:
