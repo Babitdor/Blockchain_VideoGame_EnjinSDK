@@ -3,19 +3,20 @@
 ![Badge3](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 ![Badge4](https://img.shields.io/badge/Solidity-e6e6e6?style=for-the-badge&logo=solidity&logoColor=black)
 
-# Memory Game 
+# Blockchain Memory Game 
 
-A simple Memory Game, to demonstrate the implementation of Blockchain, using Solidity, Web3JS and NodeJS. Ganache for the personal Blockchain to test and deploy the contracts
+An innovative decentralized game that utilizes blockchain technology to enable in-game asset ownership, rewards, and player interactions. The game is built using Solidity, which allows for the creation of secure and transparent smart contracts that manage in-game assets, player transactions, and rewards directly on the blockchain.
 
-# Working 
+This project demonstrates how blockchain can be integrated into the gaming world, allowing players to have full control and ownership of their virtual assets through tokens and smart contracts.
 
-It's a simple memory Game, if you are successful in obtaining the cards in the game.
-That Card will be sent to you, in your wallet upon confirming the transaction, and that card will be store in your wallet as an NFT, to either be sold or traded.
-
-For Implementation sake, i used Ganache to simulate, the working of the Game.
+# Features 
+1. Decentralized Asset Ownership: Players can own in-game assets (such as items, characters, or skins) as non-fungible tokens (NFTs).
+2. Smart Contracts: The game runs on smart contracts written in Solidity to handle in-game transactions, rewards, and asset management.
+3. Player-to-Player Trading: Players can trade, buy, and sell their in-game assets with others, directly through the blockchain.
+4. Transparent and Secure: Blockchain ensures that all transactions are transparent, traceable, and secure, preventing fraud and giving players control over their digital assets.
+5. In-Game Rewards: Players receive blockchain-based rewards, which can be redeemed for tokens or NFTs.
 
 # Screenshot
-
 
 ![Screenshot (131)](https://user-images.githubusercontent.com/57758789/169658040-3cc0f0f8-3ccc-4c72-81ed-3c760c60099a.png)
 
